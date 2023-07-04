@@ -1,0 +1,96 @@
+Q.1 What is the difference between a compiler and an interpreter? 
+Ans. Compiler speed up the process, whereas the interpreter slows down the process.
+
+The compiler in one scan will identify all the problems in the code(if found), whereas the interpreter will do scanning line by line so it takes more time for identifying the problems.
+
+Q.2 What is the difference between JDK, JRE, and JVM?
+Ans. JDK stands for Java development kit, it provides libraries and the required files to run our Java programs. (JDK:  JRE + JVM)
+
+JRE stands for Java RunTimeEnvironment, It provides a suitable environment to run our Java program.
+
+JVM stands for Java Virtual Machine, It is responsible to run our Java program based on MultiThreading.
+
+Q.3 How many types of memory areas are allocated by JVM?
+Ans. JVM has five memory locations namely:
+
+Heap: The heap is the runtime data area where objects are allocated.
+The heap is divided into two main parts: the Young Generation and Old Generation (also known as the Tenured Generation). 
+
+Young Generation: This area is further divided into three spaces: 
+Eden, Surviour Space 1, Surviour Space 2. 
+Newly created objects are initially allocated in Eden space. When the space becomes full, a minor garbage collection occurs, and the surviving objects are moved to one of the survivor spaces. 
+
+Old Generation: This area is used to store long-lived objects that have survived multiple garbage collection cycles in the Young Generation.
+
+
+       2. Method Area: Also known as the ‘Permanent Generation’ or “Metaspace”(in a newer version of Java), this area stores class-level information, such as the runtime constant pool, field and method data, and bytecode instructions. Metaspace was introduced in Java 8 as a replacement for the permanent generation.
+
+      3. JVM stacks: Each thread in a Java application has its stack, which stores method calls and local variables. The stack frames are created and destroyed as methods are invoked and returned.
+
+      
+      4. PC Registers: It stores the address of the JVM instruction currently being executed. PC (program counter) register is part of the JVM’s register set.
+      
+      5. Native Method Stacks: Similar to JVM stacks, native method stacks are used for native(non-java) code execution.
+
+Q.4 What is the JIT compiler?
+Ans. JIT stands for “Just-In-Time”, and a JIT compiler is a component of the JVM that dynamically compiles bytecode into machine code during runtime.
+The use of JIT compilation is one of the reasons why Java is known for its WORA-” write once, run anywhere” capability, as the compiled code can be optimized specifically for the target hardware at runtime.
+
+Q.5 What are the various access specifiers in Java?
+Ans.  In Java, access specifiers are keywords that are used to control the visibility and accessibility of classes, methods, variables, and constructors. Java provides four types of access specifiers:
+Public: Public access specifiers are the most permissive. When a class, method, variable, or constructor is declared public, it can be accessed from anywhere, including other classes, different packages, and subclasses.
+
+Private: Private access specifiers restrict the accessibility of a class member within the same class. Private variables, methods, and constructors can only be accessed and modified within the class in which they are defined. They are not accessible from any other class or package.
+Protected: Protected access specifiers allow class members to be within the same package and by subclasses, even if they are in different packages. However, the protected members are not accessible outside the package to which the class belongs if they are not part of a subclass.
+Default(Package-Private): If no access specifier is specified, the default access is applied. 
+The default access specifiers make the class members accessible within the same package but not from other packages.
+
+Q.6 What is a compiler in Java?
+Ans. It is software that converts the High-Level- Language(HLL)(source code) into Machine Level Language(MLL).
+
+Q.7 Explian the types of variables in Java?
+Ans. In Java, there are generally three types of variables based on their scope and location:
+Local Variables: local variables are declared within a method, constructor, or block of code. They are only accessible within the block where they are declared and have no default values. Local variables must be explicitly initialized before they are used.
+
+Instance Variables(Non-static Variables): Instance variables are declared within a class but outside any methods, constructor, or block.
+Instance variables are initialized with default values(e.g., ‘0’, ‘null’, ‘false’) if not explicitly initialized.
+
+Static Variables (class variables): Declared with the ‘static’ keyword within a class but outside any method, constructor, or block.  Static variables have only one copy shared among all instances of the class and are initialized with default values (e.g., 0, null, false) if not explicitly initialized.
+
+Q.8 What are the Datatypes in Java?
+Ans. Data types define the types of values that variables can hold. Data types allow you to work with different kinds of data and provide flexibility in programming.
+1. Primitive Data Types: These are the basic data types provided by Java. They are predefined and not objects. There are eight primitive data types:
+
+boolean: Represents a boolean value, either true or false.
+byte: Represents a small integer value ranging from -128 to 127.
+short: Represents a small integer value ranging from -32,768 to 32,767.
+int: Represents a regular integer value ranging from -2,147,483,648 to 2,147,483,647.
+long: Represents a long integer value ranging from -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807.
+float: Represents a single-precision floating-point value.
+double: Represents a double-precision floating-point value.
+char: Represents a single character.
+
+2. Reference Data Types: These are non-primitive data types that are derived from primitive types or are user-defined objects. They include:
+
+Classes: Reference types that are defined using classes.
+Arrays: Objects that store multiple values of the same type.
+Interfaces: Reference types that define a set of methods that implementing classes must implement.
+Enums: Reference types that represent a fixed set of constants.
+Strings: Objects that represent sequences of characters.
+
+Q.9 What are the identifiers in Java?
+Ans.  Identifiers are names in the Java program.
+Identifiers can be class names, method names variable names, or label names.
+An identifier is a sequence of characters that follows certain rules and conventions. 
+
+Q.10 Explain the architecture of JVM.
+Ans. The JVM architecture provides a platform-independent execution environment for Java programs. 
+JVM acts as an execution environment for Java bytecode, allowing Java programs to be executed on different operating systems and hardware architectures.
+The JVM’s memory management, security features, and execution engine contribute to the robustness and portability of Java applications.
+
+
+
+
+
+
+ 
