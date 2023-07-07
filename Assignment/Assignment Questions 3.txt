@@ -1,0 +1,328 @@
+Q1.Write a simple Banking System program by using OOPs concept where you can get account Holder name balance etc?
+Ans.
+import java.util.Scanner;
+
+class Projection {
+    private double balance = 0.0;
+
+    public void userAccess() {
+        // Variables
+        double depositAmount;
+        double withdrawAmount;
+        String name;
+        int age;
+        long aadharNO;
+        long phoneNO;
+
+        Scanner scn = new Scanner(System.in);
+        int choice;
+
+         
+            // Menu for Action
+            System.out.println("* Welcome to SBI Branch Bansoor 301402 *");
+            System.out.println("_________________________");
+            System.out.println("1. Deposit Cash");
+            System.out.println("2. Withdraw Cash");
+            System.out.println("3. Check Balance");
+            System.out.println("4. Open Account");
+            System.out.println("5. Exit");
+            System.out.println("_________________________");
+
+            while (true){
+            System.out.println("Enter your choice:");
+            choice = scn.nextInt();
+            scn.nextLine();
+
+            switch (choice) {
+                case 1:
+                    System.out.println("Enter the Deposit Amount:");
+                    depositAmount = scn.nextDouble();
+                    balance += depositAmount;
+                    System.out.println("Amount Deposited Successfully");
+                    break;
+
+                case 2:
+                    System.out.println("Enter the Withdraw Amount:");
+                    withdrawAmount = scn.nextDouble();
+                    if (withdrawAmount <= balance) {
+                        balance -= withdrawAmount;
+                        System.out.println("Amount Withdrawn Successfully");
+                    } else {
+                        System.out.println("Insufficient balance");
+                    }
+                    break;
+
+                case 3:
+                    System.out.println("Your current balance is: " + balance);
+                    break;
+
+                case 4:
+                    System.out.println("Enter your details to open an Account in SBI");
+                    System.out.println("Enter your Name:");
+                    name = scn.next();
+                    System.out.println("Enter your Age:");
+                    age = scn.nextInt();
+                    System.out.println("Enter your Aadhar Number:");
+                    aadharNO = scn.nextLong();
+                    scn.nextLine(); // Consume newline character
+                    System.out.println("Enter your Phone Number:");
+                    phoneNO = scn.nextLong();
+                    scn.nextLine(); // Consume newline character
+
+                    System.out.println("Congratulations! Your account is successfully opened in SBI");
+                    break;
+
+                case 5:
+                    System.out.println("Thanks for visiting SBI. Goodbye!");
+                    scn.close();
+                    System.exit(0);
+
+                default:
+                    System.out.println("Please enter a valid choice");
+            }
+        }
+    }
+}
+
+class DashBoard {
+    public void display1(Projection hp) {
+        hp.userAccess();
+    }
+}
+
+public class SBIHomePage {
+    public static void main(String[] args) {
+        // Polymorphism
+        Projection HP = new Projection();
+        DashBoard DB = new DashBoard();
+
+        DB.display1(HP);
+    }
+}
+
+
+
+
+Q2. Write a Program where you inherit method from parent class and show method Overridden Concept?
+Ans. 
+class ParentClass {
+    void method() {
+        System.out.println("This is the method of the parent class");
+    }
+}
+
+class ChildClass extends ParentClass {
+    @Override
+    void method() {
+        System.out.println("This is the method of the child class");
+    }
+}
+
+public class Main{
+    public static void main(String[] args) {
+        // Create an instance of the ChildClass
+        ChildClass child = new ChildClass();
+
+        // Call the overridden method
+        child.method();
+    }
+}
+
+Q3.Write a program to show run time polymorphism in java?
+Ans.
+class Automobiles{
+    public void FourWheelers(){
+        System.out.println("My Four-Wheelers Collection");
+    }
+    public void TwoWheelers(){
+        System.out.println("My Two-Wheelers Collection");
+    }
+}
+
+class MahindraTHAR extends Automobiles{
+    @Override
+    public void FourWheelers(){
+        System.out.println("My new Mahindra THAR");
+    }
+}
+
+class REcontinentalGT650 extends Automobiles{
+    @Override
+    public void TwoWheelers(){
+        System.out.println("My new Royal Enfield Continental GT 650");
+    }
+}
+
+class REhunter350 extends Automobiles{
+    @Override
+    public void TwoWheelers(){
+        System.out.println("My new Royal Enfield Hunter 350");
+    }
+}
+
+
+public class RunTimePolymorphism {
+    public static void main(String[] args) {
+       Automobiles auto1=new MahindraTHAR();
+       Automobiles auto2=new REcontinentalGT650();
+       Automobiles auto3=new REhunter350();
+    
+       auto1.FourWheelers(); //Calls the overridden FourWheeler method of the MahindraTHAR class
+       auto2.TwoWheelers();  //Calls the overridden TwoWheelers method of the REcontinentalGT650 class
+       auto3.TwoWheelers();  //Calls the overridden TwoWheelers method of the Ehunter350 class
+    }
+}
+
+
+
+Q4.Write a program to show Compile time polymorphism in java?
+Ans. 
+class Calculator{
+    public int add(int num1, int num2, int num3){
+        return num1+num2+num3;
+    }
+
+    public String add(String str1, String str2){
+        return str1+str2;
+    }
+
+    public double add(double num1, double num2){
+        return num1+num2;
+    }
+}
+
+public class CompileTimePolymorphism {
+    public static void main(String[] args) {
+        Calculator calc=new Calculator();
+
+        int score=calc.add(8, 9, 10);
+        System.out.println("Score is: "+score);
+
+        String name=calc.add("Anand ", "Saini");
+        System.out.println("Your Name: "+name);
+
+        double result=calc.add(5.5, 6.5);
+        System.out.println("Result is: "+result);
+
+
+    }
+}
+
+
+Q5. Achieve loose coupling in java by using OOPs  concept?
+Ans. 
+interface NotificationService {
+    void sendNotification(String message);
+}
+
+class EmailNotificationService implements NotificationService{
+    @Override
+    public void sendNotification(String message){
+        System.out.println("Sending email notification: " + message);
+    }
+
+}
+
+class UserService{
+    private NotificationService notificationService;
+    
+    //Constructor injection 
+    UserService(NotificationService notificationService){
+        this.notificationService=notificationService;
+    }
+
+
+    public void doSomething(){
+        //Use the notification service
+        notificationService.sendNotification("Hello, user!");
+    }
+}
+
+
+public class LooseCoupling {
+
+    public static void main(String[] args) {
+       NotificationService notificationService=new EmailNotificationService();
+       UserService userService=new UserService(notificationService);
+
+       userService.doSomething();
+    }
+}
+
+Q6. What is the benefit of encapsulation in java?
+Ans. Encapsulation in Java provides the following benefits:
+
+1. Data Hiding: Protects the internal state of an object and controls access to it, ensuring data integrity and preventing unauthorized modifications.
+
+2. Modularity: Encapsulated classes act as self-contained modules, reducing dependencies and improving code organization, readability, and maintainability.
+
+3. Code Flexibility: Allows for changes in the internal implementation of a class without affecting external code that uses it, as long as the external interface remains consistent.
+
+3. Code Reusability: Encapsulated classes can be easily reused in different parts of a program or in other projects, promoting code efficiency and reducing duplication.
+
+4. Maintainability and Debugging: Simplifies maintenance and debugging by localizing changes and minimizing the risk of unintended side effects.
+
+5. Security: Helps protect sensitive data by enforcing access controls and providing controlled access through methods.
+
+   In summary, encapsulation improves code structure, flexibility, reusability, maintainability, and security in Java programs.
+
+Q7.Is java a t 100% Object oriented Programming language? If no why ?
+Ans. No, Java is not a 100% pure object-oriented programming language. It includes primitive data types, static members and methods, and allows procedural programming techniques. However, Java strongly emphasizes object-oriented principles and provides extensive support for object-oriented programming concepts.
+
+Q8.What are the advantages of abstraction in java?
+Ans. 1. Support Reusability throught interface and abstraction.
+     2. Support Polymorphism
+     3. Enables flexibility and extensibility.
+     4. Reduce dependencies.
+
+
+
+Q9.What is an abstraction explained with an Example?
+Ans. Abstraction is the process of representing complex system or hiding unnecessary details.
+     It helps in creating flexible code by providing a clear interface and encapsulation implementation details.
+e.g.
+abstract class Airoplane{
+    abstract public void takeOff();
+    abstract public void alert();
+}
+
+class CargoPlane extends Airoplane{
+    public void takeOff(){
+    System.out.println("Cargo plane requires longer runway");
+    }
+
+    public void alert(){
+        System.out.println("Please! Put your phone on Airplane mode.");
+    }
+}
+
+class Passanger extends Airoplane{
+     public void takeOff(){
+    System.out.println("Passanger plane requires medium runway");
+    }
+
+    public void alert(){
+        System.out.println("Please ensure your seatbelts are securely fastened, your personal belongings are stowed away, and electronic devices are turned off or switched to airplane mode. Thank you for choosing to fly with us, and we wish you a pleasant journey.\"");
+    }
+}
+
+
+
+public class Abstraction {
+    public static void main(String[] args) {
+     Airoplane ref1=new CargoPlane();
+     Airoplane ref2=new Passanger();
+     ref1.takeOff();
+     ref1.alert();
+     ref2.takeOff();
+     ref2.alert();
+     ((CargoPlane)ref1).alert();//Down Casting , "We cannot access specilized methods directly if parent class is abstract type class."
+    }
+}
+
+
+Q10.What is the final class in Java?
+Ans. A class that can't be inherited or extended by other classes.
+
+
+
