@@ -1,0 +1,112 @@
+Q1.What is an Exception in Java?
+Ans. Exception typically happens while an application is running.
+Exceptions are mainly caused by the application.
+
+Q2.What is Exception Handling?
+Ans. An unwanted event that distributes the flow of execution of a program and that is handled by the ‘try-catch’ that is called exception handling.
+Syntax:
+try {
+    // Code that may throw an exception
+} catch (ExceptionType exceptionVariable) {
+    // Code to handle the exception
+}
+
+Q3.What is the difference between Checked and Unchecked Exceptions and Error?
+Ans. In Java, exceptions are categorized into three main types: checked exceptions, unchecked exceptions, and errors. 
+
+Checked Exceptions: Checked exceptions are exceptions that are checked at compile-time by the Java compiler.
+Examples of checked exceptions include IOException, SQLException, and ClassNotFoundException.
+ 
+Unchecked Exceptions: Unchecked exceptions are exceptions that are not checked at compile time by the Java compiler.
+.Examples of unchecked exceptions include NullPointerException, ArrayIndexOutOfBoundsException, and IllegalArgumentException.
+
+Errors: Errors are exceptional conditions that typically occur at a more severe level and are not recoverable.
+Examples of eros include ‘OutOfMemoryError’ and ‘StackOverflowError’.
+
+
+Q4.What are the difference between throw and throws in Java?
+Ans. > ‘throw’ is used inside the method, while ‘throws’ is used in the method signature.
+
+> ‘throw’ is used to manually throw an exception within a block of code, while throws is used in a method declaration.
+
+
+Q5.What is multithreading in Java? mention its advantages.
+Ans. Multithreading refers to the execution of multiple threads within a single program.
+> A thread is a lightweight unit of execution that represents an independent path of execution in a program.
+Advantages:
+Multithreading in Java offers advantages such as improved performance and enhanced responsiveness, efficient resource utilization, simplified program design, and support for asynchronous programming. 
+
+Q6.Write a program to create and call a custom exception
+Ans. // A class that represents the user-defined exception
+
+class MyException extends Exception{
+    public MyException(String s){
+        // Call constructor of parent Exception
+        super(s);
+    }
+
+}
+// A class that uses above MyException
+public class Solution{
+    public static void main(String[] args) {
+       try {
+          throw new MyException("Exception Message form throw")
+       } catch (MyException e) {
+           System.out.println("Caught");
+
+           //Print the message form MyException object
+           System.out.println(e.getMessage());
+       }
+    }
+}
+
+
+Q7.How can you handle exceptions in Java?
+Ans. By using ‘try-catch’ block and throw and throws keyword handling the exception in Java.
+
+
+
+Q8.What is Thread in Java?
+Ans. A thread is a lightweight unit of execution that represents an independent path of execution in a program.
+
+Q9. What are the two ways of implementing thread in Java?
+Ans.  
+Implementing the ‘Runnable’ interface:
+
+class MyRunnable implements Runnable{
+    public void run(){
+        // Thread functionality here
+    }
+}
+
+public class Solution{
+    public static void main(String[] args) {
+      MyRunnable myRunnable=new MyRunnable();
+      Thread thread=new Thread(myRunnable);
+      thread.start();
+    }
+}
+
+Extending the ‘Thread’ class:
+class MyThread extends Thread{
+    public void run(){
+        // Thread functionality here
+    }
+}
+
+public class Solution{
+    public static void main(String[] args) {
+       
+        MyThread myThread=new MyThread();
+        myThread.start();
+   
+    }
+}
+
+ 
+
+Q10.What do you mean by garbage collection?
+Ans. Garbage collection is an automatic process in Java that free up memory by reclaiming objects that are no longer used.
+
+
+
