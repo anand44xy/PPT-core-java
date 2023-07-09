@@ -130,7 +130,7 @@ public class Main{
 
 Q3.Write a program to show run time polymorphism in java?
 Ans.
-class Automobiles{
+class Automobiles{    //parent class
     public void FourWheelers(){
         System.out.println("My Four-Wheelers Collection");
     }
@@ -196,15 +196,14 @@ public class CompileTimePolymorphism {
         Calculator calc=new Calculator();
 
         int score=calc.add(8, 9, 10);
-        System.out.println("Score is: "+score);
-
-        String name=calc.add("Anand ", "Saini");
-        System.out.println("Your Name: "+name);
-
         double result=calc.add(5.5, 6.5);
+        String name=calc.add("Anand ", "Saini");
+    
+        System.out.println("Score is: "+score);
+        System.out.println("Your Name: "+name);
         System.out.println("Result is: "+result);
 
-
+       
     }
 }
 
@@ -266,11 +265,13 @@ Ans. Encapsulation in Java provides the following benefits:
 
    In summary, encapsulation improves code structure, flexibility, reusability, maintainability, and security in Java programs.
 
-Q7.Is java a t 100% Object oriented Programming language? If no why ?
-Ans. No, Java is not a 100% pure object-oriented programming language. It includes primitive data types, static members and methods, and allows procedural programming techniques. However, Java strongly emphasizes object-oriented principles and provides extensive support for object-oriented programming concepts.
+Q7.Is java a 100% Object oriented Programming language? If no why ?
+Ans. No, Java is not a 100% pure object-oriented programming language.
+It includes primitive data types, static members and methods, and allows procedural programming techniques.
+However, Java strongly emphasizes object-oriented principles and provides extensive support for object-oriented programming concepts.
 
 Q8.What are the advantages of abstraction in java?
-Ans. 1. Support Reusability throught interface and abstraction.
+Ans. 1. Support Code Reusability throught interface and abstraction.
      2. Support Polymorphism
      3. Enables flexibility and extensibility.
      4. Reduce dependencies.
