@@ -14,11 +14,13 @@ try {
 Q3.What is the difference between Checked and Unchecked Exceptions and Error?
 Ans. In Java, exceptions are categorized into three main types: checked exceptions, unchecked exceptions, and errors. 
 
-Checked Exceptions: Checked exceptions are exceptions that are checked at compile-time by the Java compiler.
-Examples of checked exceptions include IOException, SQLException, and ClassNotFoundException.
+Checked Exceptions: *Occur during compilation.*
+>Checked exceptions are exceptions that are checked at compile-time by the Java compiler.
+>Examples of checked exceptions include IOException, SQLException, and ClassNotFoundException.
  
-Unchecked Exceptions: Unchecked exceptions are exceptions that are not checked at compile time by the Java compiler.
-.Examples of unchecked exceptions include NullPointerException, ArrayIndexOutOfBoundsException, and IllegalArgumentException.
+Unchecked Exceptions: *Occur during program execution.* 
+> Not detected during the compilation process.
+> Examples of unchecked exceptions include NullPointerException, ArrayIndexOutOfBoundsException, and IllegalArgumentException.
 
 Errors: Errors are exceptional conditions that typically occur at a more severe level and are not recoverable.
 Examples of eros include ‘OutOfMemoryError’ and ‘StackOverflowError’.
@@ -67,11 +69,12 @@ Ans. By using ‘try-catch’ block and throw and throws keyword handling the ex
 
 
 Q8.What is Thread in Java?
-Ans. A thread is a lightweight unit of execution that represents an independent path of execution in a program.
+Ans. *Separate flow of execution is called tread.*
+> A thread is a lightweight unit of execution that represents an independent path of execution in a program.
 
 Q9. What are the two ways of implementing thread in Java?
 Ans.  
-Implementing the ‘Runnable’ interface:
+1. Implementing the ‘Runnable’ interface:
 
 class MyRunnable implements Runnable{
     public void run(){
@@ -87,7 +90,9 @@ public class Solution{
     }
 }
 
-Extending the ‘Thread’ class:
+
+2. Extending the ‘Thread’ class:
+
 class MyThread extends Thread{
     public void run(){
         // Thread functionality here
