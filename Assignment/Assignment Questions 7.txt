@@ -1,0 +1,164 @@
+Q1.What is the use of JDBC in Java?
+Ans. JDBC (Java Database Connectivity)  is an API(Application Programming Interface) in Java that provides a standard way for Java applications to interact with databases.
+> It allows developers to perform various database operations such as connecting to the database, executing SQL queries, retrieving and updating data, and managing database transactions. 
+
+
+Q2.What are the steps involved in JDBC?
+Ans. The steps involved in using JDBC in Java are as follows:
+1. Import JDBC Packages.
+2. Load and Register the JDBC Driver.
+3. Establish a Connection to the Database.
+4. Create a Statement or PreparedStatement.
+5. Execute SQL Statements (update or retrieve data).
+6. Process the Results (if applicable).
+7. Close Resources (Statement, PreparedStatement, ResultSet, Connection).
+8. Handle Exceptions.
+
+
+1. Import JDBC Packages: Begin by importing the necessary JDBC packages in your Java program. The core package is `java.sql`, which provides the classes and interfaces for JDBC.
+
+2. Load and Register the JDBC Driver: Before establishing a connection to a database, you need to load and register the appropriate JDBC driver. Different databases have different JDBC drivers, so you need to ensure that you have the driver JAR file in your classpath. You can load the driver using `Class.forName()` method or by using the driver-specific methods provided by the JDBC driver.
+
+3. Establish a Connection: Use the `DriverManager.getConnection()` method to establish a connection to the database. Pass the database URL, username, and password as parameters to this method. The URL format varies depending on the database vendor and the JDBC driver being used.
+
+4. Create a Statement: Once the connection is established, create a JDBC `Statement` or `PreparedStatement` object. The `Statement` object allows you to execute SQL statements and retrieve results, while the `PreparedStatement` object is used for executing parameterized SQL queries.
+
+5. Execute SQL Statements: Use the `executeUpdate()` method of the `Statement` or `PreparedStatement` object to execute SQL statements that modify the database (e.g., INSERT, UPDATE, DELETE). Use the `executeQuery()` method to execute SQL statements that retrieve data from the database (e.g., SELECT). The `execute()` method can be used to execute any SQL statement.
+
+6. Process the Results: If you executed a SQL statement that retrieves data, you need to process the returned result set using methods like `next()`, `getString()`, `getInt()`, etc. The `next()` method moves the cursor to the next row in the result set, and the getter methods retrieve the values of columns in the current row.
+
+7. Close Resources: It is essential to release the resources associated with JDBC once you are done with them. Close the `Statement`, `PreparedStatement`, `ResultSet`, and `Connection` objects in the reverse order of their creation. This step ensures that database connections are properly closed and avoids resource leaks.
+
+8. Handle Exceptions: JDBC methods can throw various exceptions, such as `SQLException`. It is important to handle these exceptions appropriately by using try-catch blocks or propagating them to the calling code.
+
+By following these steps, you can effectively use JDBC to interact with databases in your Java applications.
+
+Q3.What are the types of statements in JDBC in Java?
+Ans.In JDBC (Java Database Connectivity), there are three main types of statements that can be used to execute SQL queries or commands:
+
+    1. Statement: Simplest type without support for parameterized queries.
+    2.PreparedStatement: Allow parameterized queries for better performance and security.
+    3.CallableStatement: Specially used to execute stored procedures.
+
+
+1. Statement: The `Statement` interface is the simplest type of statement in JDBC. It allows you to execute SQL queries and updates but does not support parameterized queries. You create a `Statement` object using the `createStatement()` method of the `Connection` object. Here's an example:
+
+```java
+Statement = connection.createStatement();
+ResultSet resultSet = statement.executeQuery("SELECT * FROM employees");
+```
+
+2. PreparedStatement: The `PreparedStatement` interface extends `Statement` and provides support for parameterized queries. It allows you to precompile an SQL statement with placeholders for parameters and then set the values of those parameters dynamically before execution. This helps in performance optimization and prevents SQL injection attacks. You create a `PreparedStatement` object using the `prepareStatement()` method of the `Connection` object. Here's an example:
+
+```java
+PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM employees WHERE id = ?");
+preparedStatement.setInt(1, 1001); // Setting the value for the parameter
+ResultSet resultSet = preparedStatement.executeQuery();
+```
+
+3. CallableStatement: The `CallableStatement` interface is used to execute stored procedures in the database. It extends `PreparedStatement` and provides additional methods to handle stored procedure calls. You create a `CallableStatement` object using the `prepareCall()` method of the `Connection` object. Here's an example:
+
+```java
+CallableStatement callableStatement = connection.prepareCall("{call calculate_salary(?, ?)}");
+callableStatement.setInt(1, 1001); // Setting the value for the input parameter
+callableStatement.registerOutParameter(2, Types.FLOAT); // Registering the output parameter
+callableStatement.execute();
+float salary = callableStatement.getFloat(2); // Retrieving the output parameter value
+```
+
+These three types of statements provide different levels of functionality and flexibility when working with SQL queries and commands in JDBC. The choice of statement type depends on the specific requirements of your application.
+
+
+
+
+
+Q4.What is Servlet in Java?
+Ans. A Servlet in Java is a server-side component used for handling HTTP requests and generating dynamic responses.
+>Servlet is a technology that is used to create a web application.
+
+The Java Servlet process can be easily understood from the steps mentioned below :
+
+The client sends a request to a servlet container. The client here refers to any browser such as Chrome, IE, Mozilla, etc., in use.
+The container or the Web Server looks for the servlet. As soon as the server finds the servlet, it initiates the servlet.
+Now, the servlet processes the client request, and then a response is sent back to the server.
+This response is sent to the client by the server.
+
+
+Q5.Explain the life cycle of a servlet.
+Ans. The life cycle of a servlet can be summed up in below mentioned five points:
+
+The Servlet class is loaded. (Loading)
+The Servlet object is created. (Instantiation)
+The init() method is invoked in order to initialize the servlet.(Initialization)
+The service() method is invoked repeatedly for each client request placed. (Request Handling)
+The servlet is destroyed using destroy() method. (Destruction)
+
+
+Q6.Explain the difference between the RequestDispatcher.forward() and HttpServletResponse.sendRedirect() methods?
+Ans. 
+The forward () method of the RequestDispatcher works on the server-side, while the SendRedirect() method works on the client-side.
+The request dispatcher works on the request object, while SendRedirect() works on the response object.
+The forward() method is also significantly faster than the SendRedirect(). This is because, unlike the forward() method, the SendRedirect() method necessitates two browser requests instead of one.
+When the SendRedirect() method is used, the original URL is always changed. However, when the forward() method is applied, the original URL remains unchanged.
+Q7.What is the purpose of the doGet() and doPost() methods in a servlet?
+Ans.
+ > doGet(): It is used to take information from the server. 
+The doGet method is called by the server (via the service method) when the client requests a GET request.  
+
+> doPost():  It is used to send information to the server.
+The doPostmethod is called by the server (via the service method) when the client requests a POST request.
+
+Q8.Explain the JSP Model-View-Controller (MVC) architecture.
+Ans. In JSP MVC (Model-View-Controller) architecture, the application is divided into three components:
+
+1. Model: Represents the data and business logic of the application.
+
+2. View: Presents the user interface to the user, typically using JSP pages to generate HTML output.
+
+3. Controller: Handles user requests, processes them, and interacts with the Model and View.
+
+The Model handles data and business logic, the View handles the presentation of data, and the Controller manages the flow and handles user input. This separation allows for modular and maintainable development of web applications.
+
+Q9.What are some of the advantages of Servlets?
+Ans. 
+Better performance: because it creates a thread for each request, not process.
+Portability: because it uses Java language.
+Robust: JVM manages Servlets, so we don't need to worry about memory leaks, garbage collection, etc.
+Secure: because it uses Java language.
+
+
+
+
+
+Q10.What are the limitations of JSP?
+Ans. While JSP(JavaServer Pages) is a widely used technology for web application development, it does have some limitations to consider:
+
+
+
+1. Mixing Logic and Presentation: JSP allows mixing Java code with HTML, which can make the code messy and harder to understand.
+
+2. Steep Learning Curve: Learning JSP requires knowledge of Java programming and web development concepts, which can be challenging for beginners.
+
+3. Limited Separation of Concerns: It can be difficult to separate the code responsible for presentation (HTML) and business logic (Java) completely.
+
+4. Limited Reusability: JSP code is often tightly coupled to a specific application, making it less reusable in different projects.
+
+5. Testing Challenges: Testing JSP pages can be complex, requiring a complete server setup and making it difficult to isolate and test specific functionalities.
+
+6. Performance Overhead: JSP pages need to be compiled, which adds an extra step and can impact performance. Excessive use of complex logic can also affect performance.
+
+7. Limited Control over HTML Output: It can be challenging to precisely control the generated HTML structure in JSP.
+
+Despite these limitations, JSP remains popular due to its ease of use and the availability of libraries and frameworks. However, it's important to consider these limitations and explore alternatives if they better suit your project's needs.
+
+
+
+
+
+
+
+
+
+
+       
+
