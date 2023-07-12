@@ -1,0 +1,66 @@
+Q1.What is ORM in Hibernate?
+Ans. ORM stands for Object-Relational Mapping. In the context of Hibernate, ORM refers to the technique of mapping Java objects to database tables, and vice versa.
+> Hibernate is an open-source and lightweight ORM tool that is used to store, manipulate, and retrieve data from the database.
+> Hibernate is an ORM framework for Java that provides a convenient and efficient way to interact with relational databases using object-oriented programming concepts(OOPs).
+
+Q2.What are the advantages of Hibernate over JDBC?
+Ans. 
+Hibernate code will work well for all databases, e.g. Oracle, MySQL, etc. where as JDBC is database specific.
+
+2. No knowledge of SQL is needed because Hibernate is a set of objects and a table is treated as an object, whereas to work with JDBC, one needs to know SQL.
+
+3. Query tuning is not required in Hibernate. The query tuning is automatic in hibernate by using criteria queries, and the result of performance is at its best. Whereas in JDBC the query tuning is to be done by the database authors.
+
+4. With the support of the cache of hibernate, the data can be placed in the cache for better performance. Whereas in JDBC the java cache is to be implemented.
+
+Q3.What are some of the important interfaces of Hibernate framework?
+Ans. The core interfaces of Hibernate framework are:
+Configuration
+Session factory
+Session
+Query
+Criteria
+Transaction
+       
+
+
+
+Q4.What is a Session in Hibernate?
+Ans. A Session is used to get a physical connection between a Java application and its databases.
+ It consists of an API to perform creation and manipulation operations like read, insert, delete, update, create, etc., on the database.
+
+Q5.What is a SessionFactory?
+Ans. A session is an interface between the Java application and its database created with the help of a session factory. It is found in the org. Hibernate package.
+
+Q6.What is HQL?
+Ans. HQL or Hibernate Query Language is the object-oriented query language of Hibernate Framework.
+ HQL is very similar to SQL  except that we use objects instead of table names, which makes it closer to object-oriented programming.
+
+Q7.What are Many to Many associations?
+Ans. A many-to-many relationship refers to a relationship between tables in a database when an apparent row in one table contains several child rows in the second table, and vice versa. Many-to-many relationships are often tricky to represent.
+
+Q8.What is hibernate caching?
+Ans. Hibernate caching improves the performance of the application by pooling the object in the catch. 
+It is useful when we have to fetch the same data multiple times.
+
+There are mainly two types of caching: 
+First Level Cache
+Second Level Cache
+
+
+Q9.What is the difference between first-level cache and second-level cache?
+Ans.
+First Level Cache: Session object holds the first level cache data. It is enabled by default. The first-level cache data will not be available to the entire application. An application can use many session objects.
+Second Level Cache: SessionFactory object holds the second level cache data. The data stored in the second-level cache will be available to the entire application. But we need to enable it explicitly.
+
+Q10.What can you tell about Hibernate Configuration File?
+Ans. In Java, the Hibernate configuration file is an XML file named hibernate.cfg.xml. 
+It is used to configure the Hibernate ORM framework, specifying various settings and properties required for establishing a connection with the database and defining the behavior of Hibernate.
+
+
+
+
+
+
+
+
